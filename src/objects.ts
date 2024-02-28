@@ -78,7 +78,15 @@ export function toShortForm(question: Question): string {
  * ------------------------------
  * Check the unit tests for more examples of what this looks like!
  */
-export function toMarkdown(question: Question): string {}
+export function toMarkdown(question: Question): string {
+    let shortForm = "# " + question.name + "\n" + question.body;
+    if (question.type === "multiple_choice_question") {
+        shortForm = shortForm + "\n" + "- ";
+        const theOptions = question.options.join("\n- ");
+        return shortForm + theOptions;
+    }
+    return shortForm;
+}
 
 /**
  * Return a new version of the given question, except the name should now be
