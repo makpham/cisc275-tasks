@@ -11,9 +11,9 @@ export function makeBlankQuestion(
     type: QuestionType
 ): Question {
     return {
-        id,
-        name,
-        type,
+        id: id,
+        name: name,
+        type: type,
         body: "",
         expected: "",
         options: [],
@@ -106,12 +106,8 @@ export function publishQuestion(question: Question): Question {
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
     return {
         ...oldQuestion,
-        body: oldQuestion.body,
-        type: oldQuestion.type,
-        options: oldQuestion.options,
-        expected: oldQuestion.expected,
-        points: oldQuestion.points,
-        name: `Copy of ${oldQuestion.name}`,
+        id: id,
+        name: "Copy of " + oldQuestion.name,
         published: false
     };
 }
