@@ -2,31 +2,28 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test --coverage
 
-Browserslist: caniuse-lite is outdated. Please run:
-  npx browserslist@latest --update-db
-  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
-Browserslist: caniuse-lite is outdated. Please run:
-  npx browserslist@latest --update-db
-  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
-Browserslist: caniuse-lite is outdated. Please run:
-  npx browserslist@latest --update-db
-  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
-PASS src/functions.test.ts
+PASS src/objects.test.ts
 PASS src/arrays.test.ts
+PASS src/functions.test.ts
 PASS src/HtmlCss.test.tsx
 PASS src/text.test.tsx
 PASS src/App.test.tsx
---------------|---------|----------|---------|---------|-------------------
-File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------|---------|----------|---------|---------|-------------------
-All files     |     100 |      100 |     100 |     100 |                   
- App.tsx      |     100 |      100 |     100 |     100 |                   
- arrays.ts    |     100 |      100 |     100 |     100 |                   
- functions.ts |     100 |      100 |     100 |     100 |                   
---------------|---------|----------|---------|---------|-------------------
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+----------------|---------|----------|---------|---------|-------------------
+File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------|---------|----------|---------|---------|-------------------
+All files       |   98.73 |    97.56 |     100 |   98.68 |                   
+ src            |   98.73 |    97.56 |     100 |   98.68 |                   
+  App.tsx       |     100 |      100 |     100 |     100 |                   
+  arrays.ts     |     100 |      100 |     100 |     100 |                   
+  functions.ts  |     100 |      100 |     100 |     100 |                   
+  objects.ts    |   95.23 |     87.5 |     100 |   95.23 | 51                
+ src/interfaces |       0 |        0 |       0 |       0 |                   
+  question.ts   |       0 |        0 |       0 |       0 |                   
+----------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 5 passed, 5 total
-Tests:       23 passed, 23 total
+Test Suites: 6 passed, 6 total
+Tests:       33 passed, 33 total
 Snapshots:   0 total
-Time:        3.081 s
+Time:        4.605 s
 Ran all test suites.
