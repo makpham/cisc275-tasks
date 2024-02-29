@@ -251,5 +251,25 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const newQuestions: Question[] = [];
+
+    for (const question of questions) {
+        newQuestions.push(question);
+
+        if (question.id === targetId) {
+            const duplicate: Question = {
+                id: newId,
+                name: `Copy of ${question.name}`,
+                body: question.body,
+                type: question.type,
+                options: question.options ? [...question.options] : [],
+                expected: question.expected,
+                points: question.points,
+                published: question.published
+            };
+            newQuestions.push(duplicate);
+        }
+    }
+
+    return newQuestions;
 }
