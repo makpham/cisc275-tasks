@@ -154,7 +154,18 @@ export function addNewQuestion(
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    const newQuestion: Question = {
+        id,
+        name,
+        body: "",
+        type,
+        options: [],
+        expected: "",
+        points: 1,
+        published: false
+    };
+
+    return [...questions, newQuestion];
 }
 
 /***
