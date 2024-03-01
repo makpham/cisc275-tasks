@@ -195,18 +195,19 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    return questions.map((question) =>
-        question.id === targetId
-            ? {
-                  ...question,
-                  type: newQuestionType,
-                  options:
-                      newQuestionType !== "multiple_choice_question"
-                          ? []
-                          : question.options
-              }
-            : question
-    );
+    return questions.map((question) => {
+        if (question.id === targetId) {
+            return {
+                ...question,
+                type: newQuestionType,
+                options:
+                    newQuestionType === "multiple_choice_question"
+                        ? question.options
+                        : []
+            };
+        }
+        return question;
+    });
 }
 
 /**
@@ -225,19 +226,20 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return questions.map((question) =>
-        question.id === targetId
-            ? {
-                  ...question,
-                  options:
-                      targetOptionIndex === -1
-                          ? [...question.options, newOption]
-                          : question.options.map((option, index) =>
-                                index === targetOptionIndex ? newOption : option
-                            )
-              }
-            : question
-    );
+    const updateQuestionOption = (question: Question): Question => {
+        if (question.id === targetId) {
+            const updatedOptions = [...question.options];
+            if (targetOptionIndex === -1) {
+                updatedOptions.push(newOption);
+            } else {
+                updatedOptions[targetOptionIndex] = newOption;
+            }
+            return { ...question, options: updatedOptions };
+        }
+        return question;
+    };
+
+    return questions.map(updateQuestionOption);
 }
 
 /***
