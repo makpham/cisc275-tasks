@@ -20,6 +20,7 @@ export function StartAttempt(): JSX.Element {
 
     return (
         <div>
+            <p>Attempts: {attempts}</p>
             <Button
                 variant="primary"
                 onClick={handleStart}
@@ -35,7 +36,7 @@ export function StartAttempt(): JSX.Element {
                 Stop Quiz
             </Button>
             <Button
-                variant="success"
+                variant="warning"
                 onClick={handleMulligan}
                 disabled={isInProgress}
             >
