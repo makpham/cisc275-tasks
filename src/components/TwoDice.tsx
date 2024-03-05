@@ -1,36 +1,44 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
+/**
+ * Here is a helper function you *must* use to "roll" your die.
+ * The function uses the builtin `random` function of the `Math`
+ * module (which returns a random decimal between 0 up until 1) in order
+ * to produce a random integer between 1 and 6 (inclusive).
+ */
 export function d6(): number {
     return 1 + Math.floor(Math.random() * 6);
 }
 
 export function TwoDice(): JSX.Element {
-    const initialLeft = d6();
-    let initialRight;
-    do {
-        initialRight = d6();
-    } while (initialRight === initialLeft);
-
-    const [leftDie, setLeftDie] = useState(initialLeft);
-    const [rightDie, setRightDie] = useState(initialRight);
+    const [leftDie, setLeft] = useState<number>(-1);
+    const [rightDie, setRight] = useState<number>(7);
 
     const rollLeft = () => {
-        setLeftDie(d6());
+        const newNum = d6();
+        setLeft(newNum);
     };
-
     const rollRight = () => {
-        setRightDie(d6());
+        const newNum = d6();
+        setRight(newNum);
     };
 
     return (
         <div>
-            <span data-testid="left-die">{leftDie}</span>
-            <Button onClick={rollLeft}>Roll Left</Button>
-            <span data-testid="right-die">{rightDie}</span>
-            <Button onClick={rollRight}>Roll Right</Button>
-            {leftDie === rightDie && leftDie === 1 && <p>You Lose</p>}
-            {leftDie === rightDie && leftDie !== 1 && <p>You Win</p>}
+            <div>
+                <Button onClick={rollLeft}>Roll Left</Button>
+                <br /> <span data-testid="left-die">{leftDie}</span>
+            </div>
+            <div>
+                <Button onClick={rollRight}>Roll Right</Button>
+                <br /> <span data-testid="right-die">{rightDie}</span>
+            </div>
+            {leftDie === rightDie
+                ? leftDie === 1 && rightDie === 1
+                    ? "You Lose"
+                    : "You Win"
+                : null}
         </div>
     );
 }
