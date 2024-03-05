@@ -35,7 +35,7 @@ function App(): JSX.Element {
                     <Col>
                         <div className="red-rectangle"></div>
                         <img
-                            src="https://ih1.redbubble.net/image.5448836884.7313/st,small,507x507-pad,600x600,f8f8f8.jpg"
+                            src="https://images.pexels.com/photos/73873/star-clusters-rosette-nebula-star-galaxies-73873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                             alt="A picture of me in class"
                         />
                     </Col>
