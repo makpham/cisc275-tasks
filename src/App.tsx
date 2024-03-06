@@ -15,15 +15,17 @@ import { ChooseTeam } from "./bad-components/ChooseTeam";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <header className="App-header">
+            <h1 className="App-heading">
                 UD CISC275 with React Hooks and TypeScript
-            </header>
-            <h1>Another Header</h1>
+            </h1>
+            <h2 className="App-banner" role="banner">
+                A Heading
+            </h2>
             <p>makayla pham</p>
             <ul>
-                <li>First thing</li>
-                <li>Another thing</li>
-                <li>A third item</li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
             <p>Dilliest of Dallies ; o ;</p>
             <p>Hello World</p>
@@ -40,7 +42,7 @@ function App(): JSX.Element {
                         <div className="red-rectangle"></div>
                         <img
                             src="https://images.pexels.com/photos/73873/star-clusters-rosette-nebula-star-galaxies-73873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                            alt="A picture of me in class"
+                            alt="A picture of a red sky"
                         />
                     </Col>
                 </Row>
